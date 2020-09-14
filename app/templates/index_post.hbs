@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/all.min.css">
+		<script type="text/javascript" src="/assets/font-awesome/js/all.min.js"></script>
+		<link rel="icon" type="image/png" href="/assets/img/logo12.png">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<title>AMS || SMK Negeri 12 Jakarta</title>
+	</head>
+	<body>
+		
+		{{#if message}}
+			<div class="alert {{ type }}">
+				<span>{{ message }}</span>
+				<span><i class="fas fa-times"></i></span>
+			</div>
+		{{/if}}
+
+		<section class="hero">
+			<div class="hero-head">
+				<nav class="navbar-vertical">
+					<a href="#" class="brand">
+						<img src="/assets/img/logo12.png" alt="Logo SMKN 12 Jakarta">
+						<span>dubes</span>admin
+					</a>
+					<ul class="nav-list">
+						<li class="items active">
+							<i class="far fa-clock"></i>
+							<a href="/">
+								Dashboard
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-alt"></i>
+							<a href="/profile">
+								Profile
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-graduate"></i>
+							<a href="/add">
+								Add Student
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-plus"></i>
+							<a href="/register">
+								Add User
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-sign-out-alt"></i>
+							<a href="/auth/logout">
+								Logout
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="hero-body">
+				<nav class="navbar-horizontal">
+					<div class="container">
+						<div class="nav-row">
+							<img class="img-brand-logo" src="/assets/img/logo12.png" alt="Logo SMKN 12 Jakarta" />
+						</div>
+						<div class="nav-row">
+							<div class="nav-col">
+								<form action="" method="POST">
+									<input type="search" class="input search" id="keyword" placeholder="Search...." />
+									<span class="search-icon"><i class="fas fa-search"></i></span>
+								</form>
+								<div class="burger">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</div>	
+							<div class="nav-col">
+								<figure>
+									<img src="/uploads/{{ photo  }}" alt="{{ full_name  }}" class="img-user" />
+									<figcaption>{{ name  }}</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<div class="hero-content">
+					<header class="hero-header">
+						<div class="container">
+							<h6 class="title">DASHBOARD</h6>
+						</div>
+					</header>
+					<main class="hero-main">
+						<div class="container">
+							<section class="information-list">
+								<div class="card">
+									<div class="container">
+										<h6 class="card-title">Total Students</h6>
+										<div class="card-body">
+											<div class="balok-list">
+												<span class="balok one green"></span>
+												<span class="balok two green"></span>
+												<span class="balok three green"></span>
+												<span class="balok four green"></span>
+												<span class="balok five green"></span>
+												<span class="balok six green"></span>
+												<span class="balok sevent green"></span>
+												<span class="balok eight green"></span>
+											</div>
+											<p class="card-subtitle green-text">{{ totalStudents}}</p>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="container">
+										<h6 class="card-title">Total Users</h6>
+										<div class="card-body">
+											<div class="balok-list">
+												<span class="balok one purple"></span>
+												<span class="balok two purple"></span>
+												<span class="balok three purple"></span>
+												<span class="balok four purple"></span>
+												<span class="balok five purple"></span>
+												<span class="balok six purple"></span>
+												<span class="balok sevent purple"></span>
+												<span class="balok eight purple"></span>
+											</div>
+											<p class="card-subtitle purple-text">{{ totalUsers }}</p>
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="container">
+										<h6 class="card-title">Total Majors</h6>
+										<div class="card-body">
+											<div class="balok-list">
+												<span class="balok one blue"></span>
+												<span class="balok two blue"></span>
+												<span class="balok three blue"></span>
+												<span class="balok four blue"></span>
+												<span class="balok five blue"></span>
+												<span class="balok six blue"></span>
+												<span class="balok sevent blue"></span>
+												<span class="balok eight blue"></span>
+											</div>
+											<p class="card-subtitle blue-text">{{ totalMajors }}</p>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="hero-data">
+								<div class="container">
+									<h6 class="table-title">Show All Students</h6>
+									<div class="table-scroll">
+										<table class="table">
+											<thead>
+												<tr>
+													<th>No</th>
+													<th>Student Name</th>
+													<th>NISN</th>
+													<th>Kelas</th>
+													<th>Birthday</th>
+													<th>Photo</th>
+													<th>Action</th>
+												</tr>
+											</thead>
+											<tbody id="table">
+												{{#each students}}
+												<tr>
+													<td>{{ no }}</td>
+													<td>{{ name }}</td>
+													<td>{{ nisn }}</td>
+													<td>{{ grade }} - {{ major_name }}</td>
+													<td>{{ birthday }}</td>
+													<td>
+														<a href="/uploads/{{ photo }}" target="_blank">See Photo</a>
+													</td>
+													<td>
+														<span class="edit-icon"><i class="fas fa-edit"></i></span>
+														<a href="/edit/{{ id }}" class="table-link">Update</a>
+														<span class="delete-icon"><i class="fas fa-trash"></i></span>
+														<a href="/app/delete/{{ id }}" class="table-link">Delete</a>
+													</td>
+												</tr>
+												{{/each}}
+											</tbody>
+										</table>
+									</div>
+									<form method="GET" action="/">
+										<button type="submit" class="table-all">Hide Several Data</button>
+									</form>
+								</div>
+							</section>
+						</div>
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="container">
+					<p>2020 &copy; Dubes Admin  By Mathius Kormasela</p>
+				</div>
+			</footer>
+		</section>
+
+		<script type="text/javascript" src="/js/navbar.js"></script>
+		<script type="text/javascript" src="/js/lib.js"></script>
+		<script type="text/javascript" src="/js/mainPost.js"></script>
+	</body>
+</html>

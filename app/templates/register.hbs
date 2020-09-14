@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/all.min.css">
+		<script type="text/javascript" src="/assets/font-awesome/js/all.min.js"></script>
+		<link rel="icon" type="image/png" href="/assets/img/logo12.png">
+		<link rel="stylesheet" type="text/css" href="/css/profile_register.css">
+		<title>AMS || SMK Negeri 12 Jakarta</title>
+	</head>
+	<body>
+		
+		{{#if message}}
+		<div class="alert {{ type  }}">
+			<span>{{ message  }}</span>
+			<span><i class="fas fa-times"></i></span>
+		</div> 
+		{{/if}}
+
+		<section class="hero">
+			<div class="hero-head">
+				<nav class="navbar-vertical">
+					<a href="#" class="brand">
+						<img src="/assets/img/logo12.png" alt="Logo SMKN 12 Jakarta">
+						<span>dubes</span>admin
+					</a>
+					<ul class="nav-list">
+						<li class="items">
+							<i class="far fa-clock"></i>
+							<a href="/">
+								Dashboard
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-alt"></i>
+							<a href="/profile">
+								Profile
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-graduate"></i>
+							<a href="/add">
+								Add Student
+							</a>
+						</li>
+						<li class="items active">
+							<i class="fas fa-user-plus"></i>
+							<a href="/register">
+								Add User
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-sign-out-alt"></i>
+							<a href="/auth/logout">
+								Logout
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="hero-body">
+				<nav class="navbar-horizontal">
+					<div class="container">
+						<div class="nav-row">
+							<img class="img-brand-logo" src="/assets/img/logo12.png" alt="Logo SMKN 12 Jakarta" />
+						</div>
+						<div class="nav-row">
+							<div class="nav-col">
+								<form action="" method="POST">
+									<input type="search" style="visibility: hidden;"  class="input search" name="keyword" placeholder="Search...." />
+									<span class="search-icon" style="visibility: hidden;"><i class="fas fa-search"></i></span>
+								</form>
+								<div class="burger">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</div>	
+							<div class="nav-col">
+								<figure>
+									<img src="/uploads/{{ photo }}" alt="{{ full_name }}" class="img-user" />
+									<figcaption>{{ name }}</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<div class="hero-content">
+					<header class="hero-header">
+						<div class="container">
+							<h6 class="title">Register Page</h6>
+						</div>
+					</header>
+					<main class="hero-main">
+						<div class="container">
+							<section class="profile-col">
+								<div class="card">
+									<div class="container">
+										<div class="card-header">
+											<figure>
+												<img src="/uploads/{{ photo }}" class="img-card" alt="{{ full_name }}" />
+												<figcaption>
+													<p class="card-title-profile">{{ full_name }}</p>
+													<p class="card-subtitle-profile">{{ email }}</p>
+												</figcaption>
+											</figure>
+										</div>
+										<div class="card-footer">
+											<div class="container">
+												<a href="/" class="link-delete">Back Home</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="profile-col">
+								<div class="card">
+									<div class="container">
+										<form action="/auth/register" method="POST" enctype="multipart/form-data">
+											<div class="controls">
+												<label for="full_name" class="label-edit">Full Name</label>
+												<div class="field">
+													<input type="text" placeholder="Full Name Here..." class="input-edit"  name="full_name" id="full_name" autocomplete="off">
+												</div>
+											</div>
+											<div class="controls">
+												<label for="username" class="label-edit">Username</label>
+												<div class="field">
+													<input type="text" class="input-edit" placeholder="Username Here..." name="username" id="username" autocomplete="off">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="email" class="label-edit">Email</label>
+												<div class="field">
+													<input type="email" class="input-edit" placeholder="Email Here..." name="email" id="email" autocomplete="off">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="password" class="label-edit">Password</label>
+												<div class="field">
+													<input type="password" class="input-edit" placeholder="Password Here..."  name="password" id="password" autocomplete="off">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="password_verif" class="label-edit">Password Confirmation</label>
+												<div class="field">
+													<input type="password" class="input-edit" placeholder="Confirmation Password Here..." name="password_verif" id="password_verif" autocomplete="off">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label class="label-edit">Photo</label>
+												<div class="field">
+													<label class="upload-label" for="upload-photo">Chose Your Photo</label>
+													<input type="file" class="upload-photo-edit" name="photo" id="upload-photo"i>
+												</div>
+											</div>
+											<div class="controls">
+												<button type="submit" class="btn-edit" disabled>Update Profile</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</section>
+						</div>
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="container">
+					<p>2020 &copy; Dubes Admin  By Mathius Kormasela</p>
+				</div>
+			</footer>
+		</section>
+		
+		<script type="text/javascript" src="/js/lib.js"></script>
+		<script type="text/javascript" src="/js/navbar.js"></script>
+		<script type="text/javascript" src="/js/script.js"></script>
+	</body>
+</html>

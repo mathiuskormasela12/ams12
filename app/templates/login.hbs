@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/all.min.css">
+		<script type="text/javascript" src="/assets/font-awesome/js/all.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="/css/login.css">
+		<link rel="icon" type="image/png" href="/assets/img/logo12.png">
+		<title>AMS || SMKN 12 Jakarta</title>
+	</head>
+	<body>
+			
+		<section class="hero">
+			<div class="container">
+				<div class="card">
+					<div class="container">
+						<div class="card-head">
+							<p class="title">Welcome</p>
+							<img src="/assets/img/logo12.png" class="card-logo"  alt="Logo SMKN 12">
+						</div>
+						<form action="/auth/login" method="POST">
+							{{#if message}}
+								<div class="card-content alert {{ type  }}">
+									<span>{{ message  }}</span>
+									<span><i class="fas fa-times"></i></span>
+								</div>
+							{{/if}}
+							<div class="card-content">
+								<div class="controls">
+									<input type="text" class="input" name="username" id="username" autocomplete="off">
+									<label for="username" class="label">Username</label>
+								</div>
+								<div class="controls">
+									<input type="password" class="input" name="password" id="password" autocomplete="off">
+									<label for="password" class="label">Password</label>								
+								</div>
+								<div class="controls">
+									<button type="submit" class="btn">Login</button>
+								</div>
+							</div>
+							<div class="card-foot">
+								<label for="remember">
+									<input type="checkbox" class="input-checkbox" id="remember" name="remember" value="remember">
+									<span class="remember-text">Remember Me ?</span>
+								</label>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>			
+		
+		<script type="text/javascript" src="/js/lib.js"></script>
+		<script type="text/javascript" src="/js/login.js"></script>
+	</body>
+</html>

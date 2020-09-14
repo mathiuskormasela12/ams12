@@ -1,0 +1,285 @@
+@font-face {
+	src: url('../assets/font/Poppins-Regular.ttf');
+	font-family: popins;
+}
+
+@font-face {
+	src: url('../assets/font/Poppins-Bold.ttf');
+	font-family: popinsbold; 
+}
+
+@font-face {
+	src: url('../assets/font/Poppins-Medium.ttf');
+	font-family: popinsMed;
+}
+
+html {
+	background-color: white;
+	font-size: 16px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.7rem;
+}
+
+h3 {
+	font-size: 2.5rem;
+}
+
+h4 {
+	font-size: 2.2rem;
+}
+
+h5 {
+	font-size: 2rem;
+}
+
+h6 {
+	font-size: 1.8rem;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+section.hero {
+	min-height: 100vh;
+	height: auto;
+	padding: 2rem 0;
+	background-image: url('../assets/img/bg-01.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.hero-normal {
+	padding: 0 !important;
+}
+
+section.hero > .container {
+	min-height: 100vh;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	padding: 5rem 0;
+	width: 24.5rem;
+	height: auto;
+	border-radius: 11px;
+	background-color: white;
+	box-shadow: 0px 1px 10px -5px gray;
+}
+
+.card > .container {
+	width: 80%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.card-head {
+	text-align: center;
+	margin-bottom: 3.5rem;
+}
+
+.card-foot {
+	margin-top: 7rem;
+	font-family: popins;
+	font-size: .9rem;
+	text-align: center;
+}
+
+.card-foot span {
+	position: relative;
+	top: -.2rem;
+	font-size: .85rem;
+	margin-left: .5rem;
+	color: #666666;
+}
+
+.card-logo {	
+	width: 5rem;
+}
+
+.title {
+	font-family: popins;
+	margin-bottom: 1.8rem;
+	font-size: 1.9rem;
+	color: #555555;
+	font-weight: bold;
+}
+
+.controls {
+	margin-bottom: 2.5rem;
+	position: relative;
+}
+
+.controls:last-child {
+	margin-bottom: 0;
+}
+
+label.label {
+	position: absolute;
+	top: .6rem;
+	left: .8rem;
+	font-size: .92rem;
+	color: #999999;
+	font-family: popins;
+	transition: all .3s;
+}
+
+input.input {
+	height: 2.7rem;
+	width: 100%;
+	box-sizing: border-box;
+	color: #555555;
+	border: none;
+	border: 1px solid #EFEFEF;
+	outline: none;
+	border-radius: 10px;
+	background: #F7F7F7;
+	padding-left: .8rem;
+}
+
+input.input:focus {
+	border-color: #FEABFF;
+}
+
+input.input:focus + label.label {
+	top: -1.7rem;
+	left: 0;
+}
+
+.show-label {
+	top: -1.7rem !important;
+	left: 0 !important;
+}
+
+input.input:invalid {
+	box-shadow: none;
+	border: 1px solid red;
+}
+
+button.btn {
+	outline: none;
+	border: none;
+	border-radius: 40px;
+	height: 2.9rem;
+	width: 100%;
+	font-family:popinsMed;
+	font-size: 1rem;
+	color: white;
+	text-transform: uppercase;
+	background-color: #333333;
+	cursor: pointer;
+}
+
+.alert {
+	width: 100%;
+	padding: 1rem .9rem;
+	margin-bottom: 1.2rem;
+	border-radius: 5px;
+	box-sizing: border-box;
+	outline: none;
+	font-size: .9rem;
+	font-family: popins;
+	position: relative;
+}
+
+.alert > span:last-child {
+	position: absolute;
+	right: .9rem;
+	text-transform: uppercase;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.danger {
+	background-color: #F8D7DA;
+	color: #931C29;
+}
+
+.warning {
+	background-color: #FFF3CD;
+	color: #BA7504;
+}
+
+.success {
+	background-color: #CCE5FF;
+	color: #0045AB;
+}
+
+@media screen and (max-width: 600px) {
+	html {
+		font-size: 15px;
+	}
+	section.hero {
+		height: auto;
+		min-height: 100vh;
+		padding: 2rem 0;
+	}
+	.hero-normal {
+		padding: 2rem 0 !important;
+	}
+	section.hero > .container {
+		height: auto;
+		min-height: 100vh;
+	}
+	section.hero > .container > .card {
+		padding: 2rem 0;
+	}
+	.card-head {
+		margin-bottom: 2.5rem;
+	}
+	.card-foot {
+		margin-top: 4rem;
+	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 992px) and (max-height: 896px) {
+	html {
+		font-size: 15px;
+	}
+	section.hero {
+		height: auto;
+		min-height: 100vh;
+		padding: 2rem 0;
+	}
+	.hero-normal {
+		padding: 2rem 0 !important;
+	}
+	section.hero > .container {
+		height: auto;
+		min-height: 100vh;
+	}
+	section.hero > .container > .card {
+		padding: 2rem 0;
+	}
+	.card-head {
+		margin-bottom: 2.5rem;
+	}
+	.card-foot {
+		margin-top: 4rem;
+	}
+}
+
+@media screen and (max-width: 600px) and (min-height: 667px) and (max-height: 896px) {
+	section.hero > .container > .card {
+		padding: 5rem 0;
+		width: 88%;
+	}
+}

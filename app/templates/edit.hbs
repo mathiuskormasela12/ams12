@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/all.min.css">
+		<script type="text/javascript" src="/assets/font-awesome/js/all.min.js"></script>
+		<link rel="icon" type="image/png" href="/assets/img/logo12.png">
+		<link rel="stylesheet" type="text/css" href="/css/add.css">
+		<title>AMS || SMK Negeri 12 Jakarta</title>
+	</head>
+	<body>
+		
+		<section class="hero">
+			<div class="hero-head">
+				<nav class="navbar-vertical">
+					<a href="#" class="brand">
+						<img src="/assets/img/logo12.png" alt="Logo SMKN 12 Jakarta">
+						<span>dubes</span>admin
+					</a>
+					<ul class="nav-list">
+						<li class="items active">
+							<i class="far fa-clock"></i>
+							<a href="/">
+								Dashboard
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-alt"></i>
+							<a href="/profile">
+								Profile
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-graduate"></i>
+							<a href="/add">
+								Add Student
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-user-plus"></i>
+							<a href="/register">
+								Add User
+							</a>
+						</li>
+						<li class="items">
+							<i class="fas fa-sign-out-alt"></i>
+							<a href="/auth/logout">
+								Logout
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+			<div class="hero-body">
+				<nav class="navbar-horizontal">
+					<div class="container">
+						<div class="nav-row">
+							<img class="img-brand-logo" src="/assets/img/logo12.png" alt="Logo SMKN 12 Jakarta" />
+						</div>
+						<div class="nav-row">
+							<div class="nav-col">
+								<form action="" method="POST">
+									<input type="search" style="visibility: hidden;"  class="input search" name="keyword" placeholder="Search...." />
+									<span class="search-icon" style="visibility: hidden;"><i class="fas fa-search"></i></span>
+								</form>
+								<div class="burger">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+							</div>	
+							<div class="nav-col">
+								<figure>
+									<img src="/uploads/{{ photo  }}" alt="{{ full_name }}" class="img-user" />
+									<figcaption>{{ name }}</figcaption>
+								</figure>
+							</div>
+						</div>
+					</div>
+				</nav>
+				<div class="hero-content">
+					<header class="hero-header">
+						<div class="container">
+							<h6 class="title">Edit Student</h6>
+						</div>
+					</header>
+					<main class="hero-main">
+						<div class="container">
+							<section class="profile-col">
+								<div class="card">
+									<div class="container">
+										<div class="card-header">
+											<figure>
+												<img src="/uploads/{{result.photo}}" class="img-card" alt="SMKN 12 Jakarta" />
+												<figcaption>
+													<p class="card-title-profile">{{ result.name }}</p>
+													<p class="card-subtitle-profile">{{ result.nisn }}</p>
+												</figcaption>
+											</figure>
+										</div>
+										<div class="card-footer">
+											<div class="container">
+												<a href="/app/delete/{{ result.id }}" class="link-delete">Delete This Student</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<section class="profile-col">
+								<div class="card">
+									<div class="container">
+										<form action="/app/edit" method="POST" enctype="multipart/form-data">
+											<div class="controls">
+												<label for="student_name" class="label-edit">Student Name</label>
+												<div class="field">
+													<input type="text" placeholder="Student Name Here...." class="input-edit"  name="student_name" id="student_name" autocomplete="off" value="{{ result.name}}">
+													<input type="hidden" name="id" value="{{ result.id }}">
+													<input type="hidden" name="foto" value="{{ result.photo}}">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="nisn" class="label-edit">NISN</label>
+												<div class="field">
+													<input type="number" class="input-edit" placeholder="NISN Here...." name="nisn" id="nisn" autocomplete="off" value="{{ result.nisn }}">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="class" class="label-edit">Class</label>
+												<div class="field">
+													{{#if result.x}}
+													<select name="class" id="class" class="input-edit">
+														<option value="X" selected>X</option>
+														<option value="XI">XI</option>
+														<option value="XII">XII</option>
+													</select>
+													{{else if result.xi}}
+													<select name="class" id="class" class="input-edit">
+														<option value="X">X</option>
+														<option value="XI" selected>XI</option>
+														<option value="XII">XII</option>
+													</select>
+													{{else}}
+													<select name="class" id="class" class="input-edit">
+														<option value="X">X</option>
+														<option value="XI">XI</option>
+														<option value="XII" selected>XII</option>
+													</select>
+													{{/if}}
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="major" class="label-edit">Major</label>
+												<div class="field">
+													{{#if result.akl}}
+													<select name="major" id="major" class="input-edit">
+														<option value="a" selected>Akuntansi Keuangan Lembaga (AKL)</option>
+														<option value="b">Otomatisasi Tata Kelola Perkantoran (OTKP)</option>
+														<option value="c">Rekayasa Perangkat Lunak (RPL)</option>
+														<option value="d">Bisnis Dari Pemasaran</option>
+													</select>
+													{{else if result.otkp}}
+													<select name="major" id="major" class="input-edit">
+														<option value="a">Akuntansi Keuangan Lembaga (AKL)</option>
+														<option value="b" selected>Otomatisasi Tata Kelola Perkantoran (OTKP)</option>
+														<option value="c">Rekayasa Perangkat Lunak (RPL)</option>
+														<option value="d">Bisnis Dari Pemasaran</option>
+													</select>
+													{{else if result.rpl}}
+													<select name="major" id="major" class="input-edit">
+														<option value="a">Akuntansi Keuangan Lembaga (AKL)</option>
+														<option value="b">Otomatisasi Tata Kelola Perkantoran (OTKP)</option>
+														<option value="c" selected>Rekayasa Perangkat Lunak (RPL)</option>
+														<option value="d">Bisnis Dari Pemasaran</option>
+													</select>
+													{{else}}
+													<select name="major" id="major" class="input-edit">
+														<option value="a">Akuntansi Keuangan Lembaga (AKL)</option>
+														<option value="b">Otomatisasi Tata Kelola Perkantoran (OTKP)</option>
+														<option value="c">Rekayasa Perangkat Lunak (RPL)</option>
+														<option value="d" selected>Bisnis Dari Pemasaran</option>
+													</select>
+													{{/if}}
+												</div>
+											</div>
+											<div class="controls">
+												<label for="birth_place" class="label-edit">Birth Place</label>
+												<div class="field">
+													<input type="text" class="input-edit" name="birth_place" id="birth_place" placeholder="Birth Place Here..."  autocomplete="off" value="{{result.birth_place}}">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label for="birthday" class="label-edit">Birthday</label>
+												<div class="field">
+													<input type="date" class="input-edit" name="birthday" id="birthday" placeholder="Birthday Here..." value="{{ result.birthday }}">
+													<span class="input-alert"></span>
+												</div>
+											</div>
+											<div class="controls">
+												<label class="label-edit">Photo</label>
+												<div class="field">
+													<label class="upload-label" for="upload-photo">Chose Your Photo</label>
+													<input type="file" class="upload-photo-edit" name="photo" id="upload-photo">
+												</div>
+											</div>
+											<div class="controls">
+												<button type="submit" class="btn-edit" disabled>Update Profile</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</section>
+						</div>
+					</main>
+				</div>
+			</div>
+			<footer>
+				<div class="container">
+					<p>2020 &copy; Dubes Admin  By Mathius Kormasela</p>
+				</div>
+			</footer>
+		</section>
+		
+		<script type="text/javascript" src="/js/lib.js"></script>
+		<script type="text/javascript" src="/js/navbar.js"></script>
+		<script type="text/javascript" src="/js/add.js"></script>
+	</body>
+</html>
