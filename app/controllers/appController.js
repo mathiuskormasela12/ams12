@@ -66,7 +66,7 @@ exports.editStudent = async function(req, res) {
 			flash.setFlash(req, photo.message, photo.type);
 			return res.redirect('/');
 		} else  {
-				fs.unlink('../public/uploads/' + req.body.foto, err => {
+				fs.unlink('./public/uploads/' + req.body.foto, err => {
 					if(err)
 						console.log(err);
 				})
@@ -84,7 +84,7 @@ exports.deleteStudent = function(req, res) {
 	studentsModel.deleteStudent(id, (message, type, action, photo) => {
 
 		if(type == 'success') {
-			fs.unlink('../public/uploads/' + photo, err => {
+			fs.unlink('./public/uploads/' + photo, err => {
 				if(err)
 					console.log(errr);
 			})
@@ -128,7 +128,7 @@ function upload(req, res) {
  file += Date.now();
  file += `.${ext}`;
 
- photo.mv('../public/uploads/' + file);
+ photo.mv('./public/uploads/' + file);
  return {
 		photo: file,
 		type: 'success'

@@ -72,7 +72,7 @@ exports.edit	 = async function(req, res) {
 				return res.redirect('/profile');
 			}
 
-			fs.unlink('../public/uploads/' + req.session.photo, err => {
+			fs.unlink('./public/uploads/' + req.session.photo, err => {
 				if(err) {
 					console.log(err);
 					console.log('wk');
@@ -97,7 +97,7 @@ exports.edit	 = async function(req, res) {
 exports.remove = function(req, res) {
 	authModel.remove(req.session.ids, (message, type, action) => {
 		if(type === 'success') {
-			fs.unlink('../public/uploads/' + req.session.photo, err => {
+			fs.unlink('./public/uploads/' + req.session.photo, err => {
 				if(err) 
 					console.log(err);
 				else {
@@ -164,7 +164,7 @@ function upload(req, res) {
 		newphoto += Date.now();
 		newphoto += `.${ext}`;
 
-		photo.mv('../public/uploads/' + newphoto);
+		photo.mv('./public/uploads/' + newphoto);
 		return { photo: newphoto, type: 'success'  };
 	} catch(err) {
 		console.log(err);

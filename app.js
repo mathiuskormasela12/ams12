@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // setup static file
-app.use(express.static('../public'));
+app.use(express.static('./public'));
 
 // setup template engine
 app.set('views', path.join(__dirname, 'templates'));
